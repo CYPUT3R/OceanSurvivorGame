@@ -1,4 +1,4 @@
 # OceanSurvivorGame
-this is a cool game /
-all the code is here /
+this is a cool game  <br/>
+all the code is here  <br/>
 yep
