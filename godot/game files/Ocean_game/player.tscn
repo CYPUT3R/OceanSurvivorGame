@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b88y4q5kr6f5a"]
+
+[ext_resource type="Texture2D" uid="uid://bg1bwm8jg4ewb" path="res://character_squareRed.png" id="1_eh8eb"]
+[ext_resource type="Script" path="res://player.gd" id="1_g4hbi"]
+[ext_resource type="PackedScene" uid="uid://bsc6m0fkg1p00" path="res://water_detection_2d.tscn" id="3_4ve4n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vv6o"]
+size = Vector2(42, 64)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_g4hbi")
+speed = 600.0
+jump_velocity = -1200.0
+swim_jump = -400.0
+gravity_multiplier = 3.0
+swim_gravity = 0.4
+swim_velocity_cap = 150.0
+swim_speed = 500.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4vv6o")
+
+[node name="GFX" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_eh8eb")
+
+[node name="WaterDetection2D" parent="." instance=ExtResource("3_4ve4n")]
+position = Vector2(0, -10)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="water_state_changed" from="WaterDetection2D" to="." method="_on_water_detection_2d_water_state_changed"]
