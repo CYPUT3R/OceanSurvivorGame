@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://cv12ai85kx0qh"]
+
+[ext_resource type="Texture2D" uid="uid://de67ojyetjitr" path="res://Art/icon.svg" id="1_6u1ce"]
+[ext_resource type="Script" path="res://Scripts/electro.gd" id="1_hji74"]
+[ext_resource type="Texture2D" uid="uid://cjgehfs8yq1ce" path="res://Art/cool-circle-designs-png-1.png" id="2_y4lw6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3wwtf"]
+radius = 181.069
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfsky"]
+size = Vector2(65, 60.5)
+
+[node name="jellyfish" type="StaticBody2D"]
+collision_layer = 8
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_hji74")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(32, 32)
+scale = Vector2(1.2, 1.22684)
+texture = ExtResource("2_y4lw6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(32, 32)
+shape = SubResource("CircleShape2D_3wwtf")
+
+[node name="Timer" type="Timer" parent="Area2D"]
+wait_time = 2.5
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="Area2D"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+scale = Vector2(0.578125, 0.546876)
+texture = ExtResource("1_6u1ce")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_vfsky")
+
+[connection signal="timeout" from="Area2D/Timer" to="Area2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="Area2D/Timer2" to="Area2D" method="_on_timer_2_timeout"]
