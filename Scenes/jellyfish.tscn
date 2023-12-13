@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cv12ai85kx0qh"]
+[gd_scene load_steps=8 format=3 uid="uid://cv12ai85kx0qh"]
 
 [ext_resource type="Texture2D" uid="uid://de67ojyetjitr" path="res://Art/icon.svg" id="1_6u1ce"]
 [ext_resource type="Script" path="res://Scripts/electro.gd" id="1_hji74"]
+[ext_resource type="Script" path="res://Scenes/jellyfish.gd" id="1_s0vde"]
 [ext_resource type="Texture2D" uid="uid://cjgehfs8yq1ce" path="res://Art/cool-circle-designs-png-1.png" id="2_y4lw6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3wwtf"]
@@ -10,8 +11,12 @@ radius = 181.069
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfsky"]
 size = Vector2(65, 60.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k52bm"]
+size = Vector2(65, 59)
+
 [node name="jellyfish" type="StaticBody2D"]
 collision_layer = 8
+script = ExtResource("1_s0vde")
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("1_hji74")
@@ -41,6 +46,12 @@ texture = ExtResource("1_6u1ce")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_vfsky")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(32.5, 32.5)
+shape = SubResource("RectangleShape2D_k52bm")
 
 [connection signal="timeout" from="Area2D/Timer" to="Area2D" method="_on_timer_timeout"]
 [connection signal="timeout" from="Area2D/Timer2" to="Area2D" method="_on_timer_2_timeout"]
