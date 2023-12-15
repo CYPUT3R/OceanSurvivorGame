@@ -18,6 +18,7 @@ position = Vector2(1765, 268)
 position = Vector2(0, -64)
 
 [node name="pop_timer" type="Timer" parent="."]
+wait_time = 10.0
 
 [node name="jellyfish" parent="." instance=ExtResource("6_m4vep")]
 position = Vector2(1161, 766)
