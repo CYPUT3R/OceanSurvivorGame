@@ -6,13 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://cjgehfs8yq1ce" path="res://Art/cool-circle-designs-png-1.png" id="2_y4lw6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3wwtf"]
-radius = 181.069
+radius = 154.003
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfsky"]
-size = Vector2(65, 60.5)
+size = Vector2(49, 44)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k52bm"]
-size = Vector2(65, 59)
+size = Vector2(49, 44.5)
 
 [node name="jellyfish" type="StaticBody2D"]
 collision_layer = 8
@@ -22,8 +22,8 @@ script = ExtResource("1_s0vde")
 script = ExtResource("1_hji74")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(32, 32)
-scale = Vector2(1.2, 1.22684)
+position = Vector2(32.5, 32)
+scale = Vector2(0.988, 1)
 texture = ExtResource("2_y4lw6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -40,17 +40,18 @@ one_shot = true
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(32, 32)
-scale = Vector2(0.578125, 0.546876)
+scale = Vector2(0.4, 0.378)
 texture = ExtResource("1_6u1ce")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(32, 32)
+position = Vector2(29.5, 32)
 shape = SubResource("RectangleShape2D_vfsky")
 
 [node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-2, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(32.5, 32.5)
+position = Vector2(34, 32)
 shape = SubResource("RectangleShape2D_k52bm")
 
 [connection signal="timeout" from="Area2D/Timer" to="Area2D" method="_on_timer_timeout"]

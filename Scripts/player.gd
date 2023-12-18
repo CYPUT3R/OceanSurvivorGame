@@ -119,8 +119,6 @@ func _physics_process(delta):
 		dead()
 	
 func jump():
-		
-		
 		velocity.y = jump_velocity
 	
 func dead():
