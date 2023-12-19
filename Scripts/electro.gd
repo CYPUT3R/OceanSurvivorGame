@@ -14,7 +14,7 @@ func _process(delta):
 			print ("you got electroed!")
 			$/root/MainGame/Player/water_time.time += 5
 			has_been_attacked = true
-		
+			
 func _on_timer_timeout():
 	attacking = true
 	$Timer2.start()

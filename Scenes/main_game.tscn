@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b88y4q5kr6f5a" path="res://Scenes/player.tscn" id="2_cjqec"]
 [ext_resource type="PackedScene" uid="uid://td0unrt0y3tq" path="res://Scenes/object.tscn" id="3_fmoiv"]
 [ext_resource type="PackedScene" uid="uid://jjoe4osx0ex" path="res://Scenes/chest.tscn" id="5_maht5"]
-[ext_resource type="PackedScene" uid="uid://cv12ai85kx0qh" path="res://Scenes/jellyfish.tscn" id="6_m4vep"]
+[ext_resource type="PackedScene" uid="uid://bquentrbl7i6e" path="res://Scenes/jellyfish.tscn" id="6_m4vep"]
 [ext_resource type="PackedScene" uid="uid://cy4b63aampk3u" path="res://Scenes/key.tscn" id="7_22mfo"]
 [ext_resource type="PackedScene" uid="uid://csnl0lo3yk1m0" path="res://Scenes/camera_2d.tscn" id="7_g10vv"]
 
@@ -14,10 +14,10 @@
 position = Vector2(1765, 268)
 
 [node name="jellyfish2" parent="." instance=ExtResource("6_m4vep")]
-position = Vector2(-27, 1622)
+position = Vector2(2147, 1143)
 
 [node name="jellyfish" parent="." instance=ExtResource("6_m4vep")]
-position = Vector2(-425, 1271)
+position = Vector2(2436, 779)
 
 [node name="Level" parent="." instance=ExtResource("1_rbt25")]
 position = Vector2(0, -64)

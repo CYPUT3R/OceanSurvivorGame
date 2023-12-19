@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c100qu0d5uc6s" path="res://Art/output-onlinepngtools.png" id="1_2rnn0"]
 [ext_resource type="Texture2D" uid="uid://go72ebs7wdth" path="res://Art/palm_tree.png" id="1_77stf"]
-[ext_resource type="PackedScene" uid="uid://jpx5y0cq3ty4" path="res://cave.tscn" id="1_kly7e"]
+[ext_resource type="PackedScene" uid="uid://cyk1oftp1msw8" path="res://cave.tscn" id="1_kly7e"]
 [ext_resource type="Texture2D" uid="uid://dowqltwx32niq" path="res://Art/Sprite-0001.png" id="3_kqkw0"]
 [ext_resource type="Texture2D" uid="uid://de67ojyetjitr" path="res://Art/icon.svg" id="3_sdak1"]
 [ext_resource type="Texture2D" uid="uid://bh7qndn0w3sux" path="res://Art/game-drawing-pixilart (2).png" id="5_7l75s"]
