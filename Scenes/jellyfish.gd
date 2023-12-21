@@ -1,12 +1,7 @@
 extends StaticBody2D
 
-var oxygen_regain = 10
+var oxygen_regain = 20
 var gyat = false
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -19,8 +14,8 @@ func give_oxygen():
 	$/root/MainGame/Player/water_time.time -= oxygen_regain
 	gyat = true
 	$/root/MainGame/pop_timer.start()
-	$/root/MainGame/jellyfish.process_mode = 4
-	$/root/MainGame/jellyfish.visible = false
+	self.visible = false
+	self.process_mode = 4
 	
 
 
@@ -28,5 +23,5 @@ func give_oxygen():
 func _on_pop_timer_timeout():
 	print("hhhh")
 	gyat = false
-	$/root/MainGame/jellyfish.process_mode = 0
-	$/root/MainGame/jellyfish.visible = true
+	self.visible = true
+	self.process_mode = 0

@@ -17,7 +17,7 @@ position = Vector2(1765, 268)
 position = Vector2(-27, 1622)
 
 [node name="jellyfish" parent="." instance=ExtResource("6_m4vep")]
-position = Vector2(-425, 1271)
+position = Vector2(2045, 787)
 
 [node name="Level" parent="." instance=ExtResource("1_rbt25")]
 position = Vector2(0, -64)
