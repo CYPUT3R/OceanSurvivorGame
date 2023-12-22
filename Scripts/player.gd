@@ -10,9 +10,7 @@ extends CharacterBody2D
 @export var swim_speed : float = 500
 @export var max_speed : float = 10000
 
-
 var time = 0
-
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
