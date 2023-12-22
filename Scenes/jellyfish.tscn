@@ -54,6 +54,6 @@ position = Vector2(-2, 0)
 position = Vector2(34, 32)
 shape = SubResource("RectangleShape2D_k52bm")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="timeout" from="Area2D/Timer" to="Area2D" method="_on_timer_timeout"]
 [connection signal="timeout" from="Area2D/Timer2" to="Area2D" method="_on_timer_2_timeout"]
