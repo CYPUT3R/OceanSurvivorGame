@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cv12ai85kx0qh"]
+[gd_scene load_steps=8 format=3 uid="uid://bquentrbl7i6e"]
 
 [ext_resource type="Texture2D" uid="uid://de67ojyetjitr" path="res://Art/icon.svg" id="1_6u1ce"]
 [ext_resource type="Script" path="res://Scripts/electro.gd" id="1_hji74"]
@@ -19,6 +19,7 @@ collision_layer = 8
 script = ExtResource("1_s0vde")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
 script = ExtResource("1_hji74")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]

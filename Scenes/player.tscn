@@ -50,7 +50,7 @@ radius = 13.0
 height = 44.0
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 9
+collision_layer = 25
 script = ExtResource("1_7yttv")
 
 [node name="GFX" type="Sprite2D" parent="."]

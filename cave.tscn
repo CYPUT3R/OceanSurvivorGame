@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://jpx5y0cq3ty4"]
+[gd_scene load_steps=2 format=3 uid="uid://cyk1oftp1msw8"]
 
 [ext_resource type="Texture2D" uid="uid://c3762n4g8wi7i" path="res://Art/cave.png" id="1_ebrni"]
 
@@ -8,6 +8,7 @@ scale = Vector2(2.8, 2.8)
 texture = ExtResource("1_ebrni")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(127.857, 225.714, 131.786, 250.357, 20.7143, 248.929, 65.7143, 229.286, 97.8571, 227.857)
