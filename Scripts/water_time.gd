@@ -13,11 +13,9 @@ var is_in_water : bool = false
 func _ready():
 	GFX_bar.max_value = max_swim_time
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if time < -1:
 		time = 0
-		print("3")
 		
 	if (is_in_water):
 		start_timer(delta)
@@ -28,7 +26,6 @@ func _process(delta):
 func start_timer(delta):
 	
 	time += delta
-	print(time)
 	
 	GFX_bar.value = GFX_bar.max_value - time
 	

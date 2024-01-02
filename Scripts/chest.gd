@@ -3,7 +3,7 @@ extends Sprite2D
 var is_player_inside: bool = false
 var is_opened: bool = false
 var not_been_opened: bool = true
-@export var oxygen_reward = 20
+@export var oxygen_reward = 30
 var has_key: bool = false
 
 func _process(_delta) -> void:

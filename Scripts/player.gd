@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var swim_velocity_cap : float = 150
 @export var swim_speed : float = 500
 @export var max_speed : float = 10000
+@export var swim_down_speed : float = 400
 
 var time = 0
 
@@ -72,6 +73,8 @@ func swim_movement(delta, direction):
 	if direction:
 		animator.play("walk")
 		velocity.x = direction * swim_speed
+	elif Input.is_action_pressed("ui_down"):
+		velocity.y = swim_down_speed
 	else:
 		animator.play("idle")
 		velocity.x = move_toward(velocity.x, 0, swim_speed)
@@ -112,7 +115,7 @@ func control_camera(delta, direction):
 func jump():
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept"):
-		if is_on_floor() or not coyote_timer.is_stopped():
+		if is_on_floor() and is_in_water == false:
 			velocity.y = jump_velocity
 			
 		if is_in_water == true:

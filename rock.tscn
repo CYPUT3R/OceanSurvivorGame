@@ -1,18 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://1v32ccyg0yw1"]
+[gd_scene load_steps=3 format=3 uid="uid://l6udiac3tjfs"]
 
-[ext_resource type="Texture2D" uid="uid://kyswwijltsbt" path="res://Art/rock.png" id="1_byhlm"]
+[ext_resource type="Texture2D" uid="uid://kyswwijltsbt" path="res://Art/rock.png" id="1_7k7pa"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_s1s3j"]
-radius = 48.0104
+[sub_resource type="CircleShape2D" id="CircleShape2D_4aasj"]
+radius = 17.1172
 
-[node name="RigidBody2D" type="RigidBody2D"]
-
-[node name="Rock" type="Sprite2D" parent="."]
+[node name="Rock" type="Sprite2D"]
 texture_filter = 1
-position = Vector2(-2, 1)
-scale = Vector2(3, 3)
-texture = ExtResource("1_byhlm")
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("1_7k7pa")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6, -8)
-shape = SubResource("CircleShape2D_s1s3j")
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2, -1)
+shape = SubResource("CircleShape2D_4aasj")
