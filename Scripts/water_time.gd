@@ -2,7 +2,6 @@ extends Timer
 
 var time: float = 0.0
 
-
 @export var regain_speed = 3
 @export var max_swim_time: int = 5
 
@@ -10,10 +9,9 @@ var is_in_water : bool = false
 
 @onready var GFX_bar = $/root/MainGame/CanvasLayer/Panel/HScrollBar
 
-func _ready():
-	GFX_bar.max_value = max_swim_time
-
 func _process(delta):
+	GFX_bar.max_value = max_swim_time
+	
 	if time < -1:
 		time = 0
 		
@@ -21,7 +19,10 @@ func _process(delta):
 		start_timer(delta)
 	else:
 		stop_timer(delta)
-	
+		
+	if(time >= max_swim_time):
+		print("YOU DIE! :(")
+		get_node("/root/MainGame/Player").is_dead = true
 	
 func start_timer(delta):
 	
@@ -29,10 +30,6 @@ func start_timer(delta):
 	
 	GFX_bar.value = GFX_bar.max_value - time
 	
-	if(time >= max_swim_time):
-		print("YOU DIE! :(")
-		get_node("/root/MainGame/Player").is_dead = true
-		
 func stop_timer(delta):
 	
 	if (time >= 0):

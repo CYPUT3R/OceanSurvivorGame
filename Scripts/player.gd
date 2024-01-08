@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var acc = 1
 @export var speed = 50
 @export var jump_velocity = -1200
-@export var swim_jump : float = -400
+@export var swim_jump : float = -40
 @export var gravity_multiplier = 3
 @export var swim_gravity : float = 0.4
 @export var swim_velocity_cap : float = 150
@@ -56,11 +56,10 @@ func _physics_process(delta):
 		#coyote time
 		if was_on_floor && !is_on_floor():
 			jump_timer.start()
-			print("f")
 		
 	else:
 		dead()
-		
+	
 func flip(direction):
 	if direction:
 			if direction < 0:
@@ -118,8 +117,9 @@ func jump():
 		if is_on_floor() and is_in_water == false:
 			velocity.y = jump_velocity
 			
-		if is_in_water == true:
-			velocity.y += swim_jump
+	if Input.is_action_pressed("ui_accept") && is_in_water == true:
+		velocity.y = swim_jump
+		
 	if Input.is_action_just_released("ui_accept") && velocity.y < 0:
 		velocity.y = 0
 	
@@ -133,6 +133,3 @@ func dead():
 func _on_water_detection_2d_water_state_changed(is_in_Water : bool):
 	self.is_in_water = is_in_Water
 	
-
-
-

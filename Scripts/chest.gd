@@ -18,10 +18,8 @@ func _input(event: InputEvent) -> void:
 		
 func _expand_air() -> void:
 	$/root/MainGame/Player/water_time.max_swim_time += oxygen_reward
-	$/root/MainGame/Player/water_time.time = 0
-	print($/root/MainGame/Player/water_time.max_swim_time)
+	$/root/MainGame/Player/water_time.time = 0.1
 	
-
 func _on_area_2d_body_entered(_player: CharacterBody2D) -> void:
 	is_player_inside = true
 
