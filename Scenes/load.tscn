@@ -1,35 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bundrj6joky7f"]
+[gd_scene load_steps=11 format=3 uid="uid://bundrj6joky7f"]
 
 [ext_resource type="Script" path="res://Scenes/load.gd" id="1_vcige"]
-
-[sub_resource type="Animation" id="Animation_rcbhc"]
-resource_name = "start_load"
-length = 1.5
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1152, -0.25, 0, 0.184318, -1072.14, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.8)
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.891499),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"loading_screen_has_full_coverage"],
-"method": &"emit_signal"
-}]
-}
+[ext_resource type="Texture2D" uid="uid://s8mxgom8nhye" path="res://Art/monkey.png" id="2_m68nj"]
 
 [sub_resource type="Animation" id="Animation_ksxjt"]
 length = 0.001
@@ -60,6 +32,35 @@ tracks/0/keys = {
 "times": PackedFloat32Array(-0.00498205, 0.812505)
 }
 
+[sub_resource type="Animation" id="Animation_rcbhc"]
+resource_name = "start_load"
+length = 1.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1152, -0.25, 0, 0.184318, -1072.14, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.8)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.891499),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"loading_screen_has_full_coverage"],
+"method": &"emit_signal"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l10wx"]
 _data = {
 "RESET": SubResource("Animation_ksxjt"),
@@ -69,6 +70,44 @@ _data = {
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unqig"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="Animation" id="Animation_o1idd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yh43o"]
+resource_name = "run"
+length = 0.65
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 4, 6, 8, 10, 12]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3aeur"]
+_data = {
+"RESET": SubResource("Animation_o1idd"),
+"run": SubResource("Animation_yh43o")
+}
 
 [node name="load" type="CanvasLayer"]
 layer = 10
@@ -89,6 +128,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_unqig")
 
+[node name="Monkey" type="Sprite2D" parent="Panel"]
+texture_filter = 1
+position = Vector2(575, 238)
+scale = Vector2(5, 5)
+texture = ExtResource("2_m68nj")
+hframes = 14
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Monkey"]
+autoplay = "run"
+libraries = {
+"": SubResource("AnimationLibrary_3aeur")
+}
+
 [node name="ProgressBar" type="ProgressBar" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
@@ -96,9 +148,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -469.5
-offset_top = -13.5
-offset_right = 469.5
-offset_bottom = 13.5
+offset_left = -468.0
+offset_top = 91.0
+offset_right = 471.0
+offset_bottom = 118.0
 grow_horizontal = 2
 grow_vertical = 2

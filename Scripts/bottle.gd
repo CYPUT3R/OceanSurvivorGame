@@ -14,7 +14,6 @@ func _on_area_2d_body_entered(body):
 		$/root/MainGame/Label4.visible = false
 		$/root/MainGame/Label5.visible = false
 		
-		
 		if has_upgrade == false:
 			$/root/MainGame/Level/Rock.can_pick = true
 			has_upgrade = true

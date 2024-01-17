@@ -12,7 +12,6 @@ scale = Vector2(2.8, 2.8)
 metadata/_edit_horizontal_guides_ = []
 
 [node name="Area2D" type="Area2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(116.071, 177.857, 111.429, 208.929, 121.786, 229.286, 126.071, 245.714, 81.7857, 244.643, -198.214, 242.5, -186.071, 210, -80.7143, -144.286, 69.6429, -140.357)

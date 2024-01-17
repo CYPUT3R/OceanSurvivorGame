@@ -59,6 +59,8 @@ func _physics_process(delta):
 		
 	else:
 		dead()
+		if Input.is_action_pressed("ui_interact"):
+			get_tree().reload_current_scene()
 	
 func flip(direction):
 	if direction:
@@ -127,8 +129,7 @@ func dead():
 	is_dead = true
 	$walk_collision.disabled = true
 	$WaterDetection2D/CollisionShape2D.disabled = true
-	# TEMPORARY! - change later:
-	get_tree().reload_current_scene()
+	$/root/MainGame/CanvasLayer/death_screen.visible = true
 	
 func _on_water_detection_2d_water_state_changed(is_in_Water : bool):
 	self.is_in_water = is_in_Water

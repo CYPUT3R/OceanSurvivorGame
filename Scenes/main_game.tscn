@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ieou5r01go2o"]
+[gd_scene load_steps=12 format=3 uid="uid://ieou5r01go2o"]
 
 [ext_resource type="PackedScene" uid="uid://dobma144mw8io" path="res://Scenes/level.tscn" id="1_rbt25"]
 [ext_resource type="PackedScene" uid="uid://b88y4q5kr6f5a" path="res://Scenes/player.tscn" id="2_cjqec"]
@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bquentrbl7i6e" path="res://Scenes/jellyfish.tscn" id="6_m4vep"]
 [ext_resource type="PackedScene" uid="uid://cy4b63aampk3u" path="res://Scenes/key.tscn" id="7_22mfo"]
 [ext_resource type="PackedScene" uid="uid://csnl0lo3yk1m0" path="res://Scenes/camera_2d.tscn" id="7_g10vv"]
-[ext_resource type="PackedScene" uid="uid://cinl3buwwrfb1" path="res://Scenes/bottle.tscn" id="8_bfhws"]
+[ext_resource type="PackedScene" uid="uid://cinl3buwwrfb1" path="res://bottle.tscn" id="8_bfhws"]
 [ext_resource type="Texture2D" uid="uid://bd6p14t8c87ii" path="res://Art/sun.jpg" id="8_cg02v"]
+[ext_resource type="Texture2D" uid="uid://d3nysscs3d7qg" path="res://Art/Dark_Souls_You_Died_Screen_-_Completely_Black_Screen_0-2_screenshot.jpg" id="9_kecls"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8xdw5"]
 font_size = 28
@@ -131,3 +132,9 @@ offset_top = 13.0
 offset_right = 351.0
 offset_bottom = 83.0
 value = 100.0
+
+[node name="death_screen" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_kecls")
