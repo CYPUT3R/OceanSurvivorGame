@@ -1,14 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://ieou5r01go2o"]
+[gd_scene load_steps=13 format=3 uid="uid://ieou5r01go2o"]
 
 [ext_resource type="PackedScene" uid="uid://dobma144mw8io" path="res://Scenes/level.tscn" id="1_rbt25"]
+[ext_resource type="PackedScene" uid="uid://cinl3buwwrfb1" path="res://Scenes/bottle.tscn" id="2_aurxt"]
 [ext_resource type="PackedScene" uid="uid://b88y4q5kr6f5a" path="res://Scenes/player.tscn" id="2_cjqec"]
 [ext_resource type="PackedScene" uid="uid://jjoe4osx0ex" path="res://Scenes/chest.tscn" id="5_maht5"]
 [ext_resource type="PackedScene" uid="uid://bquentrbl7i6e" path="res://Scenes/jellyfish.tscn" id="6_m4vep"]
 [ext_resource type="PackedScene" uid="uid://cy4b63aampk3u" path="res://Scenes/key.tscn" id="7_22mfo"]
 [ext_resource type="PackedScene" uid="uid://csnl0lo3yk1m0" path="res://Scenes/camera_2d.tscn" id="7_g10vv"]
-[ext_resource type="PackedScene" uid="uid://cinl3buwwrfb1" path="res://bottle.tscn" id="8_bfhws"]
 [ext_resource type="Texture2D" uid="uid://bd6p14t8c87ii" path="res://Art/sun.jpg" id="8_cg02v"]
 [ext_resource type="Texture2D" uid="uid://d3nysscs3d7qg" path="res://Art/Dark_Souls_You_Died_Screen_-_Completely_Black_Screen_0-2_screenshot.jpg" id="9_kecls"]
+[ext_resource type="PackedScene" uid="uid://d2rukkmmk2b8y" path="res://Scenes/pause.tscn" id="10_scp1o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8xdw5"]
 font_size = 28
@@ -26,8 +27,8 @@ position = Vector2(1794, 1460)
 [node name="jellyfish" parent="." instance=ExtResource("6_m4vep")]
 position = Vector2(1625, 1126)
 
-[node name="bottle" parent="." instance=ExtResource("8_bfhws")]
-position = Vector2(1734, 728)
+[node name="bottle" parent="." instance=ExtResource("2_aurxt")]
+position = Vector2(1732, 727)
 
 [node name="Player" parent="." instance=ExtResource("2_cjqec")]
 position = Vector2(1765, 268)
@@ -47,7 +48,7 @@ position = Vector2(1100, 1582)
 position = Vector2(1541, 421)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(1468, -4703)
+position = Vector2(2424, -4770)
 scale = Vector2(14.7361, 11.4378)
 color = Color(0.988235, 1, 0.827451, 1)
 energy = 0.85
@@ -138,3 +139,5 @@ visible = false
 position = Vector2(576, 324)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("9_kecls")
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("10_scp1o")]

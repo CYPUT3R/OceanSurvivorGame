@@ -27,6 +27,7 @@ var is_dead : bool = false
 func _physics_process(delta):
 	if is_dead == false:
 		
+		
 		#Recieve input
 		var direction = Input.get_axis("ui_left", "ui_right")
 		
@@ -43,10 +44,9 @@ func _physics_process(delta):
 			velocity.y = clampf(velocity.y + (gravity * delta * swim_gravity), -10000, swim_velocity_cap)
 		
 			swim_movement(delta, direction)
-				
-
+		
 		flip(direction)
-				
+		
 		jump()
 		
 		var was_on_floor = is_on_floor()

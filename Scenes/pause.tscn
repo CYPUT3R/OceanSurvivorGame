@@ -1,0 +1,137 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2rukkmmk2b8y"]
+
+[ext_resource type="Script" path="res://Scripts/pause.gd" id="1_lvg4x"]
+[ext_resource type="Shader" path="res://Shaders/pause.gdshader" id="2_51sie"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_61xeo"]
+shader = ExtResource("2_51sie")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_cx0ut"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gn74f"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 2.844]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_58ge1"]
+_data = {
+"RESET": SubResource("Animation_cx0ut"),
+"blur": SubResource("Animation_gn74f")
+}
+
+[node name="Pause" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lvg4x")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_61xeo")
+layout_mode = 0
+offset_right = 1157.0
+offset_bottom = 652.0
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -249.0
+offset_right = 225.0
+offset_bottom = 249.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="resume" type="Button" parent="Panel"]
+layout_mode = 2
+offset_left = 190.0
+offset_top = 150.0
+offset_right = 260.0
+offset_bottom = 181.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+disabled = true
+text = "Resume"
+
+[node name="quit_out" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = 71.0
+offset_right = 65.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+disabled = true
+text = "Quit to Desktop"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_58ge1")
+}
+
+[connection signal="pressed" from="Panel/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Panel/quit_out" to="." method="_on_quit_out_pressed"]
