@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bolvaoxkbftgj"]
 
-[ext_resource type="Script" path="res://monkey_spirit.gd" id="1_pnnjq"]
+[ext_resource type="Script" path="res://Scripts/monkey_spirit.gd" id="1_16s7v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cpbyp"]
 radius = 80.0
@@ -8,7 +8,7 @@ radius = 80.0
 [node name="Monkey_spirit" type="Polygon2D"]
 color = Color(0.419608, 0.419608, 0, 1)
 polygon = PackedVector2Array(16, 0, 16, -24, 88, -24, 88, 0, 128, 40, 80, 72, 72, 88, 32, 88, 24, 72, -24, 40)
-script = ExtResource("1_pnnjq")
+script = ExtResource("1_16s7v")
 
 [node name="Area2D" type="Area2D" parent="."]
 

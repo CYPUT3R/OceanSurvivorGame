@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c3762n4g8wi7i" path="res://Art/cave.png" id="1_g2i83"]
 [ext_resource type="Texture2D" uid="uid://c6yp3u3oy81co" path="res://Art/cave_top.png" id="2_1bq1q"]
 [ext_resource type="Texture2D" uid="uid://xcb5c7ujho06" path="res://Art/cavebottom.png" id="2_a8gwo"]
-[ext_resource type="Script" path="res://Scenes/CaveTop.gd" id="3_h70pp"]
+[ext_resource type="Script" path="res://Scripts/CaveTop.gd" id="4_n6jsq"]
 [ext_resource type="Texture2D" uid="uid://cvv1mhjmvxd1p" path="res://Art/sun2.jpg" id="5_qpu6i"]
 
 [node name="Cave" type="Node2D"]
@@ -43,7 +43,7 @@ texture_filter = 1
 position = Vector2(-7.85714, 63.9286)
 scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("2_1bq1q")
-script = ExtResource("3_h70pp")
+script = ExtResource("4_n6jsq")
 
 [node name="PointLight2D" type="PointLight2D" parent="CaveTop"]
 position = Vector2(127.5, 146.072)

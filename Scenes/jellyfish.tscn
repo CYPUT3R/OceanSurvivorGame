@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bquentrbl7i6e"]
 
 [ext_resource type="Script" path="res://Scripts/electro.gd" id="1_hji74"]
-[ext_resource type="Script" path="res://Scenes/jellyfish.gd" id="1_s0vde"]
+[ext_resource type="Script" path="res://Scripts/jellyfish.gd" id="1_hu4qo"]
 [ext_resource type="Texture2D" uid="uid://cjgehfs8yq1ce" path="res://Art/cool-circle-designs-png-1.png" id="2_y4lw6"]
 [ext_resource type="Texture2D" uid="uid://cxljn22pdlrtc" path="res://Art/jellfish.png" id="4_hch5r"]
 
@@ -16,7 +16,7 @@ size = Vector2(49, 44.5)
 
 [node name="jellyfish" type="Area2D"]
 collision_layer = 8
-script = ExtResource("1_s0vde")
+script = ExtResource("1_hu4qo")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8

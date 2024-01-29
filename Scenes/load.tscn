@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bundrj6joky7f"]
 
-[ext_resource type="Script" path="res://Scenes/load.gd" id="1_vcige"]
+[ext_resource type="Script" path="res://Scripts/load (2).gd" id="1_b7d2f"]
 [ext_resource type="Texture2D" uid="uid://s8mxgom8nhye" path="res://Art/monkey.png" id="2_m68nj"]
 
 [sub_resource type="Animation" id="Animation_ksxjt"]
@@ -112,7 +112,7 @@ _data = {
 [node name="load" type="CanvasLayer"]
 layer = 10
 follow_viewport_enabled = true
-script = ExtResource("1_vcige")
+script = ExtResource("1_b7d2f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "start_load"
@@ -124,6 +124,8 @@ libraries = {
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_unqig")

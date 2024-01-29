@@ -129,7 +129,7 @@ func dead():
 	is_dead = true
 	$walk_collision.disabled = true
 	$WaterDetection2D/CollisionShape2D.disabled = true
-	$/root/MainGame/CanvasLayer/death_screen.visible = true
+	$/root/MainGame/CanvasLayer/Control/death_screen.visible = true
 	
 func _on_water_detection_2d_water_state_changed(is_in_Water : bool):
 	self.is_in_water = is_in_Water
