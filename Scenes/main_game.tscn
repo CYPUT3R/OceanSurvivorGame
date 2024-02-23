@@ -72,7 +72,7 @@ offset_left = 1736.0
 offset_top = 363.0
 offset_right = 2391.0
 offset_bottom = 405.0
-text = "Jump with \"Space\" or \"W\". 
+text = "Jump with \"Space\".
 "
 label_settings = SubResource("LabelSettings_8xdw5")
 horizontal_alignment = 1
@@ -94,7 +94,7 @@ offset_left = 2047.0
 offset_top = 741.0
 offset_right = 2428.0
 offset_bottom = 825.0
-text = "Press or hold \"Space\" or \"W\" to swim up."
+text = "Press or hold \"Space\" to swim up."
 label_settings = SubResource("LabelSettings_8xdw5")
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -141,7 +141,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="death_screen" type="Sprite2D" parent="CanvasLayer/Control"]
 visible = false

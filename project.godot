@@ -19,10 +19,6 @@ config/icon="res://Art/icon.svg"
 
 Load="*res://Scripts/load.gd"
 
-[display]
-
-window/size/mode=3
-
 [input]
 
 ui_accept={
