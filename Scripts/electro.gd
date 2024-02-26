@@ -19,7 +19,7 @@ func electro():
 	print ("you got electroed!")
 	$/root/MainGame/Player/water_time.time += damage
 	has_been_attacked = true
-			
+
 func _on_timer_timeout():
 	attacking = true
 	$Timer2.start()
