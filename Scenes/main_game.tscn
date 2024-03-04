@@ -1,8 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://ieou5r01go2o"]
+[gd_scene load_steps=25 format=3 uid="uid://ieou5r01go2o"]
 
+[ext_resource type="PackedScene" uid="uid://bcw238eyx5jiw" path="res://weather_control.tscn" id="1_034xx"]
+[ext_resource type="Shader" path="res://Shaders/rain.gdshader" id="1_ligcd"]
 [ext_resource type="PackedScene" uid="uid://dobma144mw8io" path="res://Scenes/level.tscn" id="1_rbt25"]
 [ext_resource type="PackedScene" uid="uid://cinl3buwwrfb1" path="res://Scenes/bottle.tscn" id="2_aurxt"]
 [ext_resource type="PackedScene" uid="uid://b88y4q5kr6f5a" path="res://Scenes/player.tscn" id="2_cjqec"]
+[ext_resource type="Script" path="res://Scripts/rain.gd" id="2_mex8d"]
 [ext_resource type="PackedScene" uid="uid://jjoe4osx0ex" path="res://Scenes/chest.tscn" id="5_maht5"]
 [ext_resource type="PackedScene" uid="uid://bquentrbl7i6e" path="res://Scenes/jellyfish.tscn" id="6_m4vep"]
 [ext_resource type="PackedScene" uid="uid://cy4b63aampk3u" path="res://Scenes/key.tscn" id="7_22mfo"]
@@ -10,6 +13,68 @@
 [ext_resource type="Texture2D" uid="uid://bd6p14t8c87ii" path="res://Art/sun.jpg" id="8_cg02v"]
 [ext_resource type="Texture2D" uid="uid://d3nysscs3d7qg" path="res://Art/Dark_Souls_You_Died_Screen_-_Completely_Black_Screen_0-2_screenshot.jpg" id="9_kecls"]
 [ext_resource type="PackedScene" uid="uid://d2rukkmmk2b8y" path="res://Scenes/pause.tscn" id="10_scp1o"]
+[ext_resource type="PackedScene" uid="uid://cncuvs7xwhmch" path="res://Scenes/boss.tscn" id="11_m338x"]
+[ext_resource type="AudioStream" uid="uid://qn6g8n4wo7pr" path="res://Music/Rain.mp3" id="14_cmbrl"]
+[ext_resource type="AudioStream" uid="uid://dakp28s0t15d8" path="res://Music/Thunder-and-rain-pouring-sound-effect.mp3" id="14_mcof4"]
+[ext_resource type="Script" path="res://Scenes/rain_music.gd" id="16_injvk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8or7u"]
+shader = ExtResource("1_ligcd")
+shader_parameter/count = 0
+shader_parameter/slant = 0.07
+shader_parameter/speed = 50.0
+shader_parameter/blur = 0.002
+shader_parameter/colour = Color(0, 0, 0.745098, 1)
+shader_parameter/size = Vector2(0.005, 0.2)
+
+[sub_resource type="Animation" id="Animation_dldhd"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/count")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_xxphq"]
+resource_name = "fade"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/count")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 1, 0.5, 150, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_opidv"]
+resource_name = "rain"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/count")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 150, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qdyyd"]
+_data = {
+"RESET": SubResource("Animation_dldhd"),
+"fade": SubResource("Animation_xxphq"),
+"rain": SubResource("Animation_opidv")
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_8xdw5"]
 font_size = 28
@@ -20,6 +85,32 @@ font_size = 22
 font_color = Color(0.0470588, 0.188235, 0.309804, 1)
 
 [node name="MainGame" type="Node2D"]
+
+[node name="WeatherControl" parent="." instance=ExtResource("1_034xx")]
+
+[node name="Rain_control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -11185.0
+offset_top = -6301.0
+offset_right = 12103.0
+offset_bottom = 456.0
+
+[node name="Rain" type="ColorRect" parent="Rain_control"]
+material = SubResource("ShaderMaterial_8or7u")
+layout_mode = 0
+offset_left = 12023.0
+offset_top = 5807.0
+offset_right = 13259.0
+offset_bottom = 6147.0
+scale = Vector2(1.40263, 2.76496)
+script = ExtResource("2_mex8d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rain_control/Rain"]
+libraries = {
+"": SubResource("AnimationLibrary_qdyyd")
+}
 
 [node name="jellyfish2" parent="." instance=ExtResource("6_m4vep")]
 position = Vector2(1794, 1460)
@@ -48,7 +139,7 @@ position = Vector2(1100, 1582)
 position = Vector2(1541, 421)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(2280, -4674)
+position = Vector2(2258, -4510)
 scale = Vector2(14.7361, 11.4378)
 color = Color(0.988235, 1, 0.827451, 1)
 energy = 0.85
@@ -109,17 +200,6 @@ label_settings = SubResource("LabelSettings_8xdw5")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Label6" type="Label" parent="."]
-visible = false
-offset_left = 1679.0
-offset_top = 1521.0
-offset_right = 1939.0
-offset_bottom = 1605.0
-text = "Press \"Enter\" to grab an object."
-label_settings = SubResource("LabelSettings_1xhkd")
-horizontal_alignment = 1
-autowrap_mode = 2
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
@@ -151,3 +231,30 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("9_kecls")
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("10_scp1o")]
+
+[node name="Label6" type="Label" parent="."]
+visible = false
+offset_left = 1679.0
+offset_top = 1521.0
+offset_right = 1939.0
+offset_bottom = 1605.0
+text = "Press \"Enter\" to grab an object."
+label_settings = SubResource("LabelSettings_1xhkd")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="boss" parent="." instance=ExtResource("11_m338x")]
+position = Vector2(-8144, 19)
+
+[node name="rain_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_cmbrl")
+script = ExtResource("16_injvk")
+
+[node name="Timer" type="Timer" parent="rain_music"]
+wait_time = 8.0
+
+[node name="rain_sounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_mcof4")
+
+[connection signal="finished" from="rain_music" to="rain_music" method="_on_finished"]
+[connection signal="timeout" from="rain_music/Timer" to="rain_music" method="_on_timer_timeout"]
