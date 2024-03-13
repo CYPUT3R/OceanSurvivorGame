@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ieou5r01go2o"]
+[gd_scene load_steps=29 format=3 uid="uid://ieou5r01go2o"]
 
 [ext_resource type="PackedScene" uid="uid://bcw238eyx5jiw" path="res://weather_control.tscn" id="1_034xx"]
 [ext_resource type="Shader" path="res://Shaders/rain.gdshader" id="1_ligcd"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bd6p14t8c87ii" path="res://Art/sun.jpg" id="8_cg02v"]
 [ext_resource type="Texture2D" uid="uid://d3nysscs3d7qg" path="res://Art/Dark_Souls_You_Died_Screen_-_Completely_Black_Screen_0-2_screenshot.jpg" id="9_kecls"]
 [ext_resource type="PackedScene" uid="uid://d2rukkmmk2b8y" path="res://Scenes/pause.tscn" id="10_scp1o"]
+[ext_resource type="Script" path="res://Scenes/camera_2d.gd" id="11_k0jb7"]
 [ext_resource type="PackedScene" uid="uid://cncuvs7xwhmch" path="res://Scenes/boss.tscn" id="11_m338x"]
 [ext_resource type="AudioStream" uid="uid://qn6g8n4wo7pr" path="res://Music/Rain.mp3" id="14_cmbrl"]
 [ext_resource type="AudioStream" uid="uid://dakp28s0t15d8" path="res://Music/Thunder-and-rain-pouring-sound-effect.mp3" id="14_mcof4"]
@@ -76,6 +77,63 @@ _data = {
 "rain": SubResource("Animation_opidv")
 }
 
+[sub_resource type="Animation" id="Animation_f5trn"]
+resource_name = "pan_left"
+length = 3.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-20, -0.25, 0, 0.25, 0, 1754, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(324, -0.25, 0, 0.25, 0, 324, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
+}
+
+[sub_resource type="Animation" id="Animation_6vw5s"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1754, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(324, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kijc8"]
+_data = {
+"RESET": SubResource("Animation_6vw5s"),
+"pan_left": SubResource("Animation_f5trn")
+}
+
 [sub_resource type="LabelSettings" id="LabelSettings_8xdw5"]
 font_size = 28
 font_color = Color(0.458824, 0.00392157, 0.47451, 1)
@@ -136,7 +194,13 @@ rotation = 0.240855
 position = Vector2(1100, 1582)
 
 [node name="Camera2D" parent="." instance=ExtResource("7_g10vv")]
-position = Vector2(1541, 421)
+position = Vector2(1754, 324)
+script = ExtResource("11_k0jb7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
+libraries = {
+"": SubResource("AnimationLibrary_kijc8")
+}
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(2258, -4510)
@@ -148,6 +212,7 @@ texture = ExtResource("8_cg02v")
 texture_scale = 5.95
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 1421.0
 offset_top = 212.0
 offset_right = 2076.0
@@ -159,6 +224,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 offset_left = 1731.0
 offset_top = 363.0
 offset_right = 2386.0
@@ -170,10 +236,11 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Label3" type="Label" parent="."]
-offset_left = 1235.0
-offset_top = 360.0
-offset_right = 1616.0
-offset_bottom = 444.0
+visible = false
+offset_left = 1250.0
+offset_top = 338.0
+offset_right = 1631.0
+offset_bottom = 422.0
 text = "Hold the jump button to jump higher.
 "
 label_settings = SubResource("LabelSettings_8xdw5")
@@ -201,6 +268,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 offset_top = 2.0

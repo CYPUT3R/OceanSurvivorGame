@@ -31,7 +31,7 @@ func _physics_process(delta):
 		#Recieve input
 		var direction = Input.get_axis("ui_left", "ui_right")
 		
-		control_camera(delta, direction)
+		#control_camera(delta, direction)
 		
 		if(!is_in_water):
 			#gravity
