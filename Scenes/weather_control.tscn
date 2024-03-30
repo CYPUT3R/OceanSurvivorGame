@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bcw238eyx5jiw"]
 
-[ext_resource type="Script" path="res://weather_control.gd" id="1_iffpu"]
+[ext_resource type="Script" path="res://Scripts/weather_control.gd" id="1_iffpu"]
 
 [node name="WeatherControl" type="Node2D"]
 script = ExtResource("1_iffpu")

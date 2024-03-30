@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://ieou5r01go2o"]
 
-[ext_resource type="PackedScene" uid="uid://bcw238eyx5jiw" path="res://weather_control.tscn" id="1_034xx"]
+[ext_resource type="PackedScene" uid="uid://bcw238eyx5jiw" path="res://Scenes/weather_control.tscn" id="1_034xx"]
 [ext_resource type="Shader" path="res://Shaders/rain.gdshader" id="1_ligcd"]
 [ext_resource type="PackedScene" uid="uid://dobma144mw8io" path="res://Scenes/level.tscn" id="1_rbt25"]
 [ext_resource type="PackedScene" uid="uid://cinl3buwwrfb1" path="res://Scenes/bottle.tscn" id="2_aurxt"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cncuvs7xwhmch" path="res://Scenes/boss.tscn" id="11_m338x"]
 [ext_resource type="AudioStream" uid="uid://qn6g8n4wo7pr" path="res://Music/Rain.mp3" id="14_cmbrl"]
 [ext_resource type="AudioStream" uid="uid://dakp28s0t15d8" path="res://Music/Thunder-and-rain-pouring-sound-effect.mp3" id="14_mcof4"]
-[ext_resource type="Script" path="res://Scenes/rain_music.gd" id="16_injvk"]
+[ext_resource type="Script" path="res://Scripts/rain_music.gd" id="16_eaec3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8or7u"]
 shader = ExtResource("1_ligcd")
@@ -248,7 +248,7 @@ position = Vector2(-8144, 19)
 
 [node name="rain_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_cmbrl")
-script = ExtResource("16_injvk")
+script = ExtResource("16_eaec3")
 
 [node name="Timer" type="Timer" parent="rain_music"]
 wait_time = 8.0

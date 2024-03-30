@@ -20,3 +20,4 @@ func _on_timer_timeout():
 
 func _on_finished():
 	_playing = false
+	can_play = false
