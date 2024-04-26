@@ -1,6 +1,6 @@
 extends Area2D
 
-var oxygen_regain = 10
+@export var oxygen_regain = 5
 var given_oxygen = false
 
 

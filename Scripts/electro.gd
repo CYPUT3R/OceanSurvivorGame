@@ -3,7 +3,7 @@ extends Area2D
 var attacking = false
 var has_been_attacked = false
 
-@export var damage = 5
+@export var damage = 7
 
 func _ready():
 	$Timer.start()
@@ -24,6 +24,7 @@ func _on_timer_timeout():
 	attacking = true
 	$Timer2.start()
 	$Sprite2D.visible = true
+	$CollisionShape2D.disabled = false
 	has_been_attacked = false
 	var timer = Timer.new()
 
@@ -31,6 +32,7 @@ func _on_timer_2_timeout():
 	$Sprite2D.visible = false
 	attacking = false
 	$Timer.start()
+	$CollisionShape2D.disabled = true
 	var timer = Timer.new()
 
 

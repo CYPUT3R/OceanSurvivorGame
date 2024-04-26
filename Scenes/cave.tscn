@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyk1oftp1msw8"]
+[gd_scene load_steps=8 format=3 uid="uid://cyk1oftp1msw8"]
 
 [ext_resource type="Texture2D" uid="uid://c3762n4g8wi7i" path="res://Art/cave.png" id="1_g2i83"]
 [ext_resource type="Texture2D" uid="uid://c6yp3u3oy81co" path="res://Art/cave_top.png" id="2_1bq1q"]
 [ext_resource type="Texture2D" uid="uid://xcb5c7ujho06" path="res://Art/cavebottom.png" id="2_a8gwo"]
+[ext_resource type="Texture2D" uid="uid://7ddwag577j1t" path="res://Art/cave_bot_top.png" id="2_gu7fr"]
+[ext_resource type="Script" path="res://Scenes/Cavebottom.gd" id="4_1xa44"]
 [ext_resource type="Script" path="res://Scripts/CaveTop.gd" id="4_n6jsq"]
 [ext_resource type="Texture2D" uid="uid://cvv1mhjmvxd1p" path="res://Art/sun2.jpg" id="5_qpu6i"]
 
@@ -27,14 +29,21 @@ polygon = PackedVector2Array(127.857, 225.714, 131.786, 250.357, 27.8571, 249.28
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(122.857, 189.286, 72.1428, -151.071, -79.2857, -152.143, -204.643, 245, -25.7143, 248.929, -37.8572, 236.786, -83.2143, 240, -105.357, 241.071, -130.714, 236.071, -138.929, 175.357, -134.643, 157.143, -69.2857, 151.071, -55, 166.429, -38.5714, 200.714, -32.8572, 205.714, -15.7143, 201.429, -22.8571, 179.643, -40, 155, -99.2857, 122.857, -119.643, 76.4286, -105.357, 36.0714, -91.4286, 10.7143, -63.2143, 0.714294, -27.8572, 0.714294, -3.57141, -7.49997, 23.9286, -21.0714, 4.64282, -36.0714, -42.8572, -43.9286, -68.5714, -72.5, -65, -109.643, -42.1429, -137.143, 23.9286, -139.286, 48.5714, -113.571, 56.0714, -64.6429, 58.9285, -26.7857, 47.5, 18.9286, 40, 53.5714, 37.1428, 78.2143, -4.64288, 93.5714, -21.0714, 114.286, -13.2143, 132.5, 8.57141, 145, 25, 143.929, 55.3571, 142.143, 78.2143, 143.929, 94.2857, 167.857, 105.714, 178.214)
 
+[node name="CaveBotTop" type="Sprite2D" parent="."]
+position = Vector2(-33.2143, 480)
+scale = Vector2(1, 1)
+texture = ExtResource("2_gu7fr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CaveBotTop"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CaveBotTop/StaticBody2D"]
+polygon = PackedVector2Array(-174.286, -232.5, -174.286, -173.928, -197.143, -66.4285, -197.5, -11.0714, -223.571, 67.5001, -218.571, 105.714, -243.571, 161.786, -266.786, 208.929, -395, 213.214, -398.929, 245.714, 228.929, 246.072, 396.429, 247.143, 397.857, 185, 314.643, 186.429, 291.786, 162.143, 263.214, 76.7858, 224.643, 36.4287, 171.071, -183.571, 165, -227.143, 160, -229.643, 58.5714, -227.5, 54.6429, -217.857, 61.7857, -198.928, 65, -176.071, 64.2857, -148.214, 33.9286, -88.2142, 18.2143, -52.4999, -7.5, -42.8571, -14.6429, -34.6428, -120.357, -46.4285, -127.143, -37.1428, -134.286, -27.4999, -131.786, -14.6428, -124.643, -1.4285, -114.643, 5.71436, -105, 5.71436, 17.1429, -1.78564, 82.5, -73.5714, 151.429, -66.0714, 170.714, -54.2856, 183.929, -19.9999, 190, 6.7858, 191.786, 35.7144, 193.571, 88.9287, 180.357, 130.357, 141.786, 160.357, -2.5, 175.357, -111.786, 180.357, -178.214, 165.714, -192.5, 159.286, -185.714, 105.714, -24.6429, 101.072, 86.7857, 76.7858, 115, 64.2858, 125.357, 52.143, 125.357, 36.0715, 121.071, 18.9286, 115.714, 16.7858, 106.429, 16.4286, 82.5, 22.8572, 53.9286, 35.0001, 36.7857, 51.0715, -8.21429, 66.7858, -58.5714, 59.2858, -122.143, 55.7144, -170.714, 48.2144, -177.143, 44.2858, -162.143, -136.071, -147.857, -158.928, -136.786, -173.571, -125.357, -170.357, -95.3572, -170.357, -68.5714, -165, -44.2857, -152.857, -23.5714, -156.428, -13.2143, -178.571, -1.07143, -194.643, 12.1429, -204.286, 16.7857, -211.786, 17.1429, -221.429, 10, -227.5, -53.9286, -226.429, -137.5, -225.714)
+
 [node name="Cavebottom" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-32.8571, 480)
 texture = ExtResource("2_a8gwo")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Cavebottom"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cavebottom/StaticBody2D"]
-polygon = PackedVector2Array(163.214, -229.643, 166.071, -228.214, 172.857, -167.857, 193.214, -127.143, 212.143, -42.1429, 213.571, -14.6429, 226.429, 8.21429, 233.214, 57.1429, 257.5, 74.6429, 280.357, 122.143, 297.5, 179.286, 341.429, 190.357, 397.5, 187.857, 398.929, 246.429, 114.286, 246.429, -396.786, 248.929, -398.571, 211.786, -353.929, 211.786, -270, 210, -242.5, 174.286, -224.286, 122.857, -215.357, 81.4286, -221.786, 60, -201.429, 16.4286, -195, -51.4286, -191.786, -101.786, -170.357, -202.857, -172.5, -234.286, 7.5, -230.357, 20.3571, -211.071, 18.9286, -205.357, 23.9286, -191.071, 50.7143, -192.5, 56.0714, -205.714, 48.2143, -210.714, 60.3571, -230, 157.143, -229.643)
+script = ExtResource("4_1xa44")
 
 [node name="CaveTop" type="Sprite2D" parent="."]
 visible = false
@@ -58,5 +67,12 @@ energy = 0.7
 texture = ExtResource("5_qpu6i")
 texture_scale = 0.3
 
+[node name="bottom_area" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bottom_area"]
+polygon = PackedVector2Array(-54.2857, 258.571, 55.3571, 253.571, 185.714, 510.714, 207.143, 653.571, 80, 707.5, -251.071, 676.071, -196.071, 310.357, -176.429, 266.071)
+
 [connection signal="body_entered" from="Area2D" to="CaveTop" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="CaveTop" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="bottom_area" to="Cavebottom" method="_on_bottom_area_body_entered"]
+[connection signal="body_exited" from="bottom_area" to="Cavebottom" method="_on_bottom_area_body_exited"]
