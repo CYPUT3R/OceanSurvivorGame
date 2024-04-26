@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://dobma144mw8io"]
 
 [ext_resource type="Texture2D" uid="uid://c100qu0d5uc6s" path="res://Art/output-onlinepngtools.png" id="1_2rnn0"]
-[ext_resource type="Texture2D" uid="uid://go72ebs7wdth" path="res://Art/palm_tree.png" id="1_77stf"]
+[ext_resource type="Texture2D" uid="uid://cj1u1ltnkv0gj" path="res://Art/pixil-frame-0.png" id="1_fw3dp"]
 [ext_resource type="PackedScene" uid="uid://cyk1oftp1msw8" path="res://Scenes/cave.tscn" id="1_kly7e"]
 [ext_resource type="Texture2D" uid="uid://dowqltwx32niq" path="res://Art/Sprite-0001.png" id="3_kqkw0"]
 [ext_resource type="Texture2D" uid="uid://de67ojyetjitr" path="res://Art/icon.svg" id="3_sdak1"]
@@ -444,9 +444,9 @@ position = Vector2(1790, 513)
 [node name="PalmTree" type="Sprite2D" parent="island"]
 z_index = -1
 texture_filter = 1
-position = Vector2(-44, -116)
-scale = Vector2(2.4, 2.4)
-texture = ExtResource("1_77stf")
+position = Vector2(-37, -62)
+scale = Vector2(3.3, 3.3)
+texture = ExtResource("1_fw3dp")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="island"]
 position = Vector2(-31, -15)

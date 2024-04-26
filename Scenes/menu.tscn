@@ -17,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Quit" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 394.0
 offset_top = 431.0
 offset_right = 768.0
@@ -31,6 +32,7 @@ label_settings = SubResource("LabelSettings_uo6q4")
 horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 394.0
 offset_top = 307.0
 offset_right = 768.0
