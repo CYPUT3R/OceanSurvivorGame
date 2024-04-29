@@ -13,10 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://bd6p14t8c87ii" path="res://Art/sun.jpg" id="8_cg02v"]
 [ext_resource type="Texture2D" uid="uid://d3nysscs3d7qg" path="res://Art/Dark_Souls_You_Died_Screen_-_Completely_Black_Screen_0-2_screenshot.jpg" id="9_kecls"]
 [ext_resource type="PackedScene" uid="uid://d2rukkmmk2b8y" path="res://Scenes/pause.tscn" id="10_scp1o"]
-[ext_resource type="PackedScene" uid="uid://cncuvs7xwhmch" path="res://Scenes/boss.tscn" id="11_m338x"]
 [ext_resource type="AudioStream" uid="uid://qn6g8n4wo7pr" path="res://Music/Rain.mp3" id="14_cmbrl"]
 [ext_resource type="AudioStream" uid="uid://dakp28s0t15d8" path="res://Music/Thunder-and-rain-pouring-sound-effect.mp3" id="14_mcof4"]
 [ext_resource type="Script" path="res://Scripts/rain_music.gd" id="16_eaec3"]
+[ext_resource type="PackedScene" uid="uid://ddrvnpdaum0vh" path="res://boss.tscn" id="17_tq7qm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8or7u"]
 shader = ExtResource("1_ligcd")
@@ -276,9 +276,6 @@ label_settings = SubResource("LabelSettings_1xhkd")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="boss" parent="." instance=ExtResource("11_m338x")]
-position = Vector2(-8144, 19)
-
 [node name="rain_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_cmbrl")
 script = ExtResource("16_eaec3")
@@ -288,6 +285,9 @@ wait_time = 8.0
 
 [node name="rain_sounds" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_mcof4")
+
+[node name="boss2" parent="." instance=ExtResource("17_tq7qm")]
+position = Vector2(561, 2022)
 
 [connection signal="finished" from="rain_music" to="rain_music" method="_on_finished"]
 [connection signal="timeout" from="rain_music/Timer" to="rain_music" method="_on_timer_timeout"]

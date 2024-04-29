@@ -1,6 +1,7 @@
 extends Sprite2D
 
 var has_upgrade = false
+var can_pick = false
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
@@ -15,7 +16,7 @@ func _on_area_2d_body_entered(body):
 		$/root/MainGame/Label5.visible = false
 		
 		if has_upgrade == false:
-			$/root/MainGame/Level/Rock.can_pick = true
+			can_pick = true
 			has_upgrade = true
 			
 func _on_area_2d_body_exited(body):
