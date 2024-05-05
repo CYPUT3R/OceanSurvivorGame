@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://blngnaqh8hmwn"]
+
+[ext_resource type="Script" path="res://Scenes/beggining.gd" id="1_832b4"]
+[ext_resource type="Texture2D" uid="uid://o06o2l0fr23w" path="res://Art/beg1.png" id="2_ldian"]
+[ext_resource type="Texture2D" uid="uid://oxfq5yp8jsid" path="res://Art/beg2.png" id="3_plfqh"]
+[ext_resource type="Texture2D" uid="uid://b6sfj2esid5v" path="res://Art/beg3.png" id="4_oy273"]
+[ext_resource type="Texture2D" uid="uid://c8jnngslo7vwc" path="res://Art/beg4.png" id="5_6uuhg"]
+[ext_resource type="Texture2D" uid="uid://mi8dteykphxi" path="res://Art/beg5.png" id="6_jjmu8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sfa0t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ldian")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_plfqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oy273")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6uuhg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jjmu8")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.4
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_832b4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(582, 325.25)
+scale = Vector2(0.82153, 0.807222)
+sprite_frames = SubResource("SpriteFrames_sfa0t")
+autoplay = "default"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

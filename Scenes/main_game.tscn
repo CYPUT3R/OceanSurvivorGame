@@ -16,7 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://qn6g8n4wo7pr" path="res://Music/Rain.mp3" id="14_cmbrl"]
 [ext_resource type="AudioStream" uid="uid://dakp28s0t15d8" path="res://Music/Thunder-and-rain-pouring-sound-effect.mp3" id="14_mcof4"]
 [ext_resource type="Script" path="res://Scripts/rain_music.gd" id="16_eaec3"]
-[ext_resource type="PackedScene" uid="uid://ddrvnpdaum0vh" path="res://boss.tscn" id="17_tq7qm"]
+[ext_resource type="PackedScene" uid="uid://djt01bkd8fg53" path="res://Scenes/family.tscn" id="17_34pui"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8or7u"]
 shader = ExtResource("1_ligcd")
@@ -286,8 +286,9 @@ wait_time = 8.0
 [node name="rain_sounds" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_mcof4")
 
-[node name="boss2" parent="." instance=ExtResource("17_tq7qm")]
-position = Vector2(561, 2022)
+[node name="StaticBody2D" parent="." instance=ExtResource("17_34pui")]
+position = Vector2(1210, 2698)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="finished" from="rain_music" to="rain_music" method="_on_finished"]
 [connection signal="timeout" from="rain_music/Timer" to="rain_music" method="_on_timer_timeout"]

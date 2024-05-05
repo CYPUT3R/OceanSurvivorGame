@@ -486,11 +486,6 @@ rotation = -0.837758
 [node name="Cave" parent="." instance=ExtResource("1_kly7e")]
 position = Vector2(1744, 1032)
 
-[node name="Rock2" parent="." instance=ExtResource("8_3blsu")]
-position = Vector2(1712, 290)
-rotation = -0.837758
-scale = Vector2(1.23, 1.23)
-
 [node name="TileMap2" type="TileMap" parent="."]
 position = Vector2(-44, -12)
 tile_set = SubResource("TileSet_8gybu")
